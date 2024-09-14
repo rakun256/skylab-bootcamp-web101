@@ -15,6 +15,25 @@ function calculateResult() {
   }
 }
 
+// Yüzde hesaplama
+function calculatePercentage() {
+  const value = parseFloat(document.getElementById('display').value);
+  document.getElementById('display').value = value / 100;
+}
+
+// Karekök hesaplama
+function calculateSquareRoot() {
+  const value = parseFloat(document.getElementById('display').value);
+  document.getElementById('display').value = Math.sqrt(value);
+}
+
+// Üslü sayı hesaplama
+function calculatePower() {
+  const base = parseFloat(prompt("Taban değerini girin:"));
+  const exponent = parseFloat(prompt("Üs değerini girin:"));
+  document.getElementById('display').value = Math.pow(base, exponent);
+}
+
 document.addEventListener("keydown", function (event) {
   const key = event.key;
   const display = document.getElementById("display");
