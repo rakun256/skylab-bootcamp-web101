@@ -9,7 +9,8 @@ function clearDisplay() {
 function calculateResult() {
   const display = document.getElementById("display");
   try {
-    display.value = eval(display.value);
+    // Replace ^ with ** for exponentiation
+    display.value = eval(display.value.replace(/\^/g, '**'));
   } catch (error) {
     display.value = "Hata!";
   }
@@ -27,20 +28,13 @@ function calculateSquareRoot() {
   document.getElementById('display').value = Math.sqrt(value);
 }
 
-// Üslü sayı hesaplama
-function calculatePower() {
-  const base = parseFloat(prompt("Taban değerini girin:"));
-  const exponent = parseFloat(prompt("Üs değerini girin:"));
-  document.getElementById('display').value = Math.pow(base, exponent);
-}
-
 document.addEventListener("keydown", function (event) {
   const key = event.key;
   const display = document.getElementById("display");
 
   if (!isNaN(key) || key === ".") {
     appendToDisplay(key);
-  } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+  } else if (key === "+" || key === "-" || key === "*" || key === "/" || key === "^") {
     appendToDisplay(key);
   } else if (key === "Enter") {
     calculateResult();
